@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration  scan="true" scanPeriod="60 seconds" debug="false">
+    
+    <!--定义日志文件的存储地址 -->
+    <!-- <property name="log.path" value="D:\\work\\logback" /> -->
+    <property name="log.appName" value="sszserver" />
+    
+    <!-- application-local.properties 传递参数，不能使用logback 自带的<property>标签 -->
+    <!-- <springProperty scope="context" name="log.appName" source="logback.appName"/>-->  
+    <springProperty scope="context" name="log.path" source="logback.logFilePath"/>
+    
+    <!-- 获取Oracle连接信息 -->
+    <springProperty scope="context" name="driverClassName" source="spring.datasource.driverClassName"/>
+    <springProperty scope="context" name="url" source="spring.datasource.url"/>
+    <springProperty scope="context" name="username" source="spring.datasource.username"/>
+    <springProperty scope="context" name="password" source="spring.datasource.password"/>
+    
+    <contextName>${log.appName}</contextName>
+    
+    <!--输出到控制台-->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter> -->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender> 
+ 
+    <!--输出到文件-->
+    <!-- 把Info级别的信息输出到文件中 -->
+    <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+        	<!--过滤 Error-->
+        	<level>ERROR</level>
+        	<!--匹配到就禁止-->
+        	<onMatch>DENY</onMatch>
+        	<!--没有匹配到就允许-->
+        	<onMismatch>ACCEPT</onMismatch>
+    	</filter>
+    	<!--日志名称，如果没有File 属性，那么只会使用FileNamePattern的文件路径规则
+        	如果同时有<File>和<FileNamePattern>，那么当天日志是<File>，明天会自动把今天
+        	的日志改名为今天的日期。即，<File> 的日志都是当天的。
+    	-->
+		<!-- <file>${log.path}/ssz_info.log</file> -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        	<!--日志文件输出的文件名-->
+            <fileNamePattern>${log.path}/%d{yyyyMMdd}/${log.appName}_info_%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <!--用来指定日志文件的上限大小，那么到了这个值，就会滚动产生新的日志-->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!--日志文件保留天数-->
+            <maxHistory>180</maxHistory>
+        </rollingPolicy>
+        <encoder>
+        	<charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <!-- 把Error级别的信息输出到文件中 -->
+    <appender name="fileErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+        	<!--过滤 Error-->
+        	<level>ERROR</level>
+        	<!--匹配到就允许-->
+        	<onMatch>ACCEPT</onMatch>
+        	<!--没有匹配到就禁止-->
+        	<onMismatch>DENY</onMismatch>
+    	</filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        	<!--日志文件输出的文件名-->
+            <fileNamePattern>${log.path}/%d{yyyyMMdd}/${log.appName}_error_%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+            <!--用来指定日志文件的上限大小，那么到了这个值，就会滚动产生新的日志-->
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!--日志文件保留天数-->
+            <maxHistory>180</maxHistory>
+        </rollingPolicy>
+        <encoder>
+        	<charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %contextName [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <!-- 输出到Oracle数据库 -->
+    <!--<appender name="db-classic-oracle-pool" class="ch.qos.logback.classic.db.DBAppender">
+		<dbNameResolver class="com.hello.common.config.MyDBNameResolver" />
+		<connectionSource class="ch.qos.logback.core.db.DataSourceConnectionSource">
+			<dataSource class="com.alibaba.druid.pool.DruidDataSource">
+				<driverClassName>${driverClassName}</driverClassName>
+				<url>${url}</url>
+				<username>${username}</username>
+				<password>${password}</password>
+				
+				<initialSize>5</initialSize>
+				<minIdle>5</minIdle>
+				<maxActive>20</maxActive>
+				<maxWait>60000</maxWait>
+				<timeBetweenEvictionRunsMillis>60000</timeBetweenEvictionRunsMillis>
+				<minEvictableIdleTimeMillis>300000</minEvictableIdleTimeMillis>
+				<validationQuery>SELECT 1 FROM DUAL</validationQuery>
+				<testWhileIdle>true</testWhileIdle>
+				<testOnBorrow>true</testOnBorrow>
+				<poolPreparedStatements>true</poolPreparedStatements>
+				<maxPoolPreparedStatementPerConnectionSize>20</maxPoolPreparedStatementPerConnectionSize>
+				<filters>stat,log4j,mergeStat</filters>
+				
+				<connectionProperties>password=${password}</connectionProperties>
+				<passwordCallback class="com.hello.common.util.db.DbPasswordCallback" />
+			</dataSource>
+		</connectionSource>
+	</appender>-->
+ 
+ 	<!-- 输出级别 -->
+    <root level="info">
+        <appender-ref ref="console" />
+        <appender-ref ref="fileInfoLog" />
+        <appender-ref ref="fileErrorLog" />
+    </root>
+ 
+ 	<!-- 输出SQL语句 -->
+ 	<!-- <logger name="org.hibernate.SQL" level="DEBUG" /> -->
+	<!-- <logger name="org.hibernate.engine.QueryParameters" level="DEBUG" /> -->
+	<!-- <logger name="org.hibernate.engine.query.HQLQueryPlan" level="DEBUG" />  -->
+	
+    <!-- 单独指定一个类的级别、输出类型 -->
+   <!-- <logger name="com.hello.common" level="INFO" additivity="true">
+        <appender-ref ref="db-classic-oracle-pool"/>
+    </logger>-->
+</configuration>

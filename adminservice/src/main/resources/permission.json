@@ -1,0 +1,122 @@
+[{
+  "id":2,
+  "name":"管理员列表",
+  "iconCls":"",
+  "path":"/account-management",
+  "parentId":null,
+  "sorting":2
+},{
+  "id":3,
+  "name":"品牌管理",
+  "iconCls":"",
+  "path":"/brand-manage",
+  "parentId":2,
+  "sorting":3
+},{
+  "id":4,
+  "name":"一级车型管理",
+  "iconCls":"",
+  "path":"/one-rank-car-manage",
+  "parentId":null,
+  "sorting":4
+},{
+  "id":5,
+  "name":"二级车型管理",
+  "iconCls":"",
+  "path":"/two-rank-car-manage",
+  "parentId":null,
+  "sorting":5
+},{
+  "id":6,
+  "name":"三级车型管理",
+  "iconCls":"",
+  "path":"/three-rank-car-manage",
+  "parentId":null,
+  "sorting":6
+},{
+  "id":8,
+  "name":"年限管理",
+  "iconCls":"",
+  "path":"/year-manage",
+  "parentId":null,
+  "sorting":8
+},{
+  "id":9,
+  "name":"发动机类型",
+  "iconCls":"",
+  "path":"/engine-type",
+  "parentId":null,
+  "sorting":9
+},{
+  "id":10,
+  "name":"发动机管理",
+  "iconCls":"",
+  "path":"/engine-manage",
+  "parentId":null,
+  "sorting":10
+},{
+  "id":11,
+  "name":"保护油管理",
+  "iconCls":"",
+  "path":"/olis-manage",
+  "parentId":null,
+  "sorting":11
+},{
+  "id":12,
+  "name":"图片基础数",
+  "iconCls":"",
+  "path":"/olis-pic-base",
+  "parentId":null,
+  "sorting":12
+},{
+  "id":13,
+  "name":"机器人管理",
+  "iconCls":"",
+  "path":"/robot-manage",
+  "parentId":null,
+  "sorting":13
+},{
+  "id":14,
+  "name":"地区管理",
+  "iconCls":"",
+  "path":"/area-manage",
+  "parentId":null,
+  "sorting":14
+},
+  {
+    "id":15,
+    "name":"地区价格管理",
+    "iconCls":"",
+    "path":"/area-price-manage",
+    "parentId":null,
+    "sorting":15
+  },
+
+  {
+    "id":16,
+    "name":"菜单管理",
+    "iconCls":"",
+    "path":"/menu",
+    "parentId":null,
+    "sorting":16
+  },
+
+  {
+    "id":17,
+    "name":"油品价格管理",
+    "iconCls":"",
+    "path":"/olis-prize-manage",
+    "parentId":null,
+    "sorting":17
+  },
+
+  {
+  "id":18,
+  "name":"角色权限",
+  "iconCls":"",
+  "path":"/role-permission",
+  "parentId":null,
+  "sorting":18
+}
+]
+
