@@ -3,7 +3,7 @@ package com.hello.adminservice.service.olis;
 
 import com.hello.adminservice.repository.imgBase.ImgMaterialRepository;
 import com.hello.adminservice.repository.olis.OlisRepository;
-import com.hello.adminservice.util.StringUtil;
+import com.hello.common.util.StringUtil;
 import com.hello.common.dto.olis.ImgMaterial;
 import com.hello.common.dto.olis.Olis;
 import org.springframework.beans.factory.annotation.Autowired;

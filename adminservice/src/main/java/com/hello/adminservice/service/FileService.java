@@ -2,8 +2,8 @@ package com.hello.adminservice.service;
 
 import com.hello.adminservice.config.AppConfig;
 import com.hello.adminservice.repository.UploadFileRepository;
-import com.hello.adminservice.util.CommonUtils;
-import com.hello.adminservice.util.FileUtils;
+import com.hello.common.util.CommonUtils;
+import com.hello.common.util.FileUtils;
 import com.hello.common.dto.DownloadFile;
 import com.hello.common.entity.system.UploadFile;
 import org.springframework.beans.factory.annotation.Autowired;

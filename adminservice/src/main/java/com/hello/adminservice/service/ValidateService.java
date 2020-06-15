@@ -6,7 +6,7 @@ import com.hello.adminservice.repository.brand.BrandRepository;
 import com.hello.adminservice.repository.engine.EngineTypeRepository;
 import com.hello.adminservice.repository.olis.RegionRepository;
 import com.hello.adminservice.repository.year.YearRepository;
-import com.hello.adminservice.util.PasswordUtils;
+import com.hello.common.util.PasswordUtils;
 import com.hello.common.dto.olis.Brand;
 import com.hello.common.dto.olis.EngineType;
 import com.hello.common.dto.olis.Region;

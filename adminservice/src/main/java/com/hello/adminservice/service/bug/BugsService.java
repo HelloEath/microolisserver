@@ -17,7 +17,7 @@ import com.hello.adminservice.repository.olis.TwoLevelCarTypeRepository;
 import com.hello.adminservice.repository.saeDesc.SaeDescRepository;
 import com.hello.adminservice.repository.year.YearRepository;
 import com.hello.adminservice.service.FileService;
-import com.hello.adminservice.util.StringUtil;
+import com.hello.common.util.StringUtil;
 import com.hello.common.entity.system.UploadFile;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,7 +2,7 @@ package com.hello.adminservice.service.year;
 
 import com.hello.common.dto.olis.Year;
 import com.hello.adminservice.repository.year.YearRepository;
-import com.hello.adminservice.util.PasswordUtils;
+import com.hello.common.util.PasswordUtils;
 import com.hello.common.entity.system.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

@@ -1,6 +1,6 @@
 package com.hello.adminservice.controller.imgBase;
 
-import com.hello.adminservice.util.Result;
+import com.hello.common.util.Result;
 import com.hello.common.dto.olis.ImgBase;
 import io.swagger.annotations.*;
 import org.springframework.data.domain.Page;

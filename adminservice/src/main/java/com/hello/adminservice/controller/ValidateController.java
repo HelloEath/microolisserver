@@ -1,7 +1,7 @@
 package com.hello.adminservice.controller;
 
 
-import com.hello.adminservice.util.Result;
+import com.hello.common.util.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

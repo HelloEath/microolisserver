@@ -7,8 +7,7 @@ import com.hello.common.dto.olis.ThreeLevelCarType;
 import com.hello.common.dto.olis.TwoLevelCarType;
 import com.hello.common.util.Result;
 import com.hello.mobileservice.service.year.YearServerHandler;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.data.domain.Page;

@@ -3,6 +3,8 @@ package com.hello.mobileservice.service.mobile;
 import com.hello.common.dto.olis.*;
 
 import com.hello.common.util.Result;
+import com.hello.common.util.ResultUtil;
+import com.hello.common.util.enumeration.ReturnCode;
 import com.hello.mobileservice.service.brand.BrandService;
 import com.hello.mobileservice.service.device.DeviceService;
 import com.hello.mobileservice.service.region.RegionService;
@@ -133,7 +135,10 @@ public class MobileService {
         String deviceId=httpServletRequest.getHeader("deviceId");
         String systemType=httpServletRequest.getHeader("systemType");
         String token=httpServletRequest.getHeader("token");
-        return deviceService.isValiDataDevice(deviceId,systemType,token);
+        if ("null".equals(deviceId) || "null".equals(systemType)) {
+            return ResultUtil.error(ReturnCode.TIMEOUT.getValue(), "请求缺少必要参数,请重新注册");
+        }
+        return deviceService.isValiDataDevice(deviceId,systemType,token).getData();
     }
 
     public Result<Device> saveDevice(Device device) {

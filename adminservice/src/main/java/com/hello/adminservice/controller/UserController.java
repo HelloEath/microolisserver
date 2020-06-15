@@ -1,13 +1,10 @@
 package com.hello.adminservice.controller;
 
-import com.hello.adminservice.util.Result;
+import com.hello.common.util.Result;
 import com.hello.common.entity.system.Permission;
 import com.hello.common.entity.system.User;
 import io.swagger.annotations.*;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,7 +14,7 @@ import java.util.List;
 @Api(value = "用户接口",description = "UserController")
 @RequestMapping(path = "/user")
 public interface UserController {
-	
+
 	@ApiOperation(value="获取用户集合", notes="根据查询条件来获取用户集合")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "name", value = "用户名称",dataType = "String",paramType = "query"),
@@ -30,7 +27,7 @@ public interface UserController {
     })
     @RequestMapping(path = "/getusers",method = RequestMethod.GET)
 	Result<List> getUsers(String name, String username, Long departmentId, Long roleId, Integer status, Integer userType, Integer pageNo);
-	
+
 	@ApiOperation(value="获取用户集合", notes="根据岗位code来获取用户集合")
     @ApiImplicitParams({
     		@ApiImplicitParam(name = "departmentId", value = "所属部门",  dataType = "Long",paramType = "query"),
@@ -73,5 +70,7 @@ public interface UserController {
     @RequestMapping(path = "/menus",method = RequestMethod.GET)
     Result<Permission> menus();
 
+    @RequestMapping(value = "/loadUserByUsername",method = RequestMethod.GET)
+    User loadUserByUsername(@RequestParam String s);
 
 }

@@ -1,10 +1,10 @@
 package com.hello.adminservice.controller.year;
 
 
-import com.hello.adminservice.util.Result;
 import com.hello.common.dto.olis.Region;
 import com.hello.common.dto.olis.RegionPrizeManage;
 import com.hello.common.dto.olis.Year;
+import com.hello.common.util.Result;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;

@@ -1,6 +1,6 @@
 package com.hello.adminservice.controller.sae;
 
-import com.hello.adminservice.util.Result;
+import com.hello.common.util.Result;
 import com.hello.common.dto.olis.SaeDesc;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

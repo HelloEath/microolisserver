@@ -7,9 +7,9 @@ import com.hello.adminservice.repository.PermissionRepository;
 import com.hello.adminservice.repository.RoleRepository;
 import com.hello.adminservice.repository.UserRepository;
 import com.hello.adminservice.repository.olis.RegionRepository;
-import com.hello.adminservice.util.PasswordUtils;
-import com.hello.adminservice.util.StringUtil;
-import com.hello.adminservice.util.enumeration.Commons;
+import com.hello.common.util.PasswordUtils;
+import com.hello.common.util.StringUtil;
+import com.hello.common.util.enumeration.Commons;
 import com.hello.common.dto.olis.Region;
 import com.hello.common.entity.system.Permission;
 import com.hello.common.entity.system.Role;
@@ -112,7 +112,7 @@ public class InitService {
      */
     public List<Region> initRegion(Resource resource, String systemType) {
         try {
-            String dictionaryString = com.hello.adminservice.util.FileUtils.getDictionaryString(resource);
+            String dictionaryString = com.hello.common.util.FileUtils.getDictionaryString(resource);
             JSONArray jsonArray = JSON.parseArray(dictionaryString);
             List<Region>  regionList= new ArrayList<>();
             for (int i = 0; i < jsonArray.size(); i++) {
@@ -142,7 +142,7 @@ public class InitService {
     @Transactional
     public List<Permission> initPermission(Resource resource) {
         try {
-            String dictionaryString = com.hello.adminservice.util.FileUtils.getDictionaryString(resource);
+            String dictionaryString = com.hello.common.util.FileUtils.getDictionaryString(resource);
             JSONArray jsonArray = JSON.parseArray(dictionaryString);
             List<Permission> list = new ArrayList<>();
             for (int i = 0; i < jsonArray.size(); i++) {

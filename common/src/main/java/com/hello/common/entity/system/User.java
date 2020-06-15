@@ -3,11 +3,15 @@ package com.hello.common.entity.system;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hello.common.dto.olis.Region;
 import com.hello.common.entity.common.BaseEntity;
+import com.hello.common.util.enumeration.Commons;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 
 import javax.persistence.Column;
@@ -27,7 +31,7 @@ import java.util.List;
 @SQLDelete(sql = "update t_user set del = 1 where id = ?")
 @Where(clause = "del = 0")
 @Data
-public class User extends BaseEntity  {
+public class User extends BaseEntity implements UserDetails {
 
     @ApiModelProperty(value = "登录名")
     @Column(length = 100)
@@ -76,9 +80,35 @@ public class User extends BaseEntity  {
     @Column(length = 1, nullable = false, columnDefinition = "int default 0")
     //@JsonIgnore
     private int op;
-    
 
 
+    @Override
+    @JsonIgnore
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        if(role!=null){
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
+        }
+        return authorities;
+    }
 
-    
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return this.status== Commons.ENABLED.getIntegerValue()?true:false;
+    }
 }

@@ -1,7 +1,7 @@
 package com.hello.adminservice.controller.engine;
 
 
-import com.hello.adminservice.util.Result;
+import com.hello.common.util.Result;
 import com.hello.common.dto.olis.Engine;
 import com.hello.common.dto.olis.EngineType;
 import io.swagger.annotations.*;

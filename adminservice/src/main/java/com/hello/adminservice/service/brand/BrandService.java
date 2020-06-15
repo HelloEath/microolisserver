@@ -7,7 +7,7 @@ import com.hello.common.dto.olis.TwoLevelCarType;
 import com.hello.adminservice.repository.ThreeLevelWithYearRepository;
 import com.hello.adminservice.repository.brand.BrandRepository;
 import com.hello.adminservice.service.oneLevel.LevelCarTypeService;
-import com.hello.adminservice.util.PasswordUtils;
+import com.hello.common.util.PasswordUtils;
 import com.hello.common.entity.system.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

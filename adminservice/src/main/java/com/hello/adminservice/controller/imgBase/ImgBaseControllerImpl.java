@@ -2,9 +2,9 @@ package com.hello.adminservice.controller.imgBase;
 
 import com.hello.common.dto.olis.ImgBase;
 import com.hello.adminservice.service.imgBase.ImgBaseService;
-import com.hello.adminservice.util.PageRequestUtil;
-import com.hello.adminservice.util.Result;
-import com.hello.adminservice.util.ResultUtil;
+import com.hello.common.util.PageRequestUtil;
+import com.hello.common.util.Result;
+import com.hello.common.util.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.PathVariable;

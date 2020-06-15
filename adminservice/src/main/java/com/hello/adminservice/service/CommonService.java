@@ -7,7 +7,7 @@ import com.hello.adminservice.repository.SystemLogRepository;
 import com.hello.adminservice.repository.SystemParamsRepository;
 import com.hello.adminservice.repository.olis.RegionRepository;
 import com.hello.adminservice.repository.year.YearRepository;
-import com.hello.adminservice.util.PasswordUtils;
+import com.hello.common.util.PasswordUtils;
 import com.hello.common.dto.olis.Region;
 import com.hello.common.dto.olis.Year;
 import com.hello.common.entity.system.LoggingEventException;

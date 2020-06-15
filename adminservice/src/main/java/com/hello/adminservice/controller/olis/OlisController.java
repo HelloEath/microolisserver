@@ -1,7 +1,7 @@
 package com.hello.adminservice.controller.olis;
 
 import com.hello.common.dto.olis.Olis;
-import com.hello.adminservice.util.Result;
+import com.hello.common.util.Result;
 import com.hello.common.entity.system.UploadFile;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

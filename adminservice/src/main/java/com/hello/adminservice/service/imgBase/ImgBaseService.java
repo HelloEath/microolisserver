@@ -4,7 +4,7 @@ import com.hello.common.dto.olis.ImgBase;
 import com.hello.common.dto.olis.ImgMaterial;
 import com.hello.adminservice.repository.imgBase.ImgBaseRepository;
 import com.hello.adminservice.repository.imgBase.ImgMaterialRepository;
-import com.hello.adminservice.util.PasswordUtils;
+import com.hello.common.util.PasswordUtils;
 import com.hello.common.entity.system.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

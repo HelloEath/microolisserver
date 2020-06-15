@@ -2,8 +2,6 @@ package com.hello.mobileservice.controller.mobile;
 
 import com.hello.common.dto.olis.*;
 import com.hello.common.util.Result;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;

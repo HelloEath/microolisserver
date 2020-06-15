@@ -109,7 +109,7 @@
 				<filters>stat,log4j,mergeStat</filters>
 				
 				<connectionProperties>password=${password}</connectionProperties>
-				<passwordCallback class="com.hello.adminservice.util.db.DbPasswordCallback" />
+				<passwordCallback class="com.hello.common.util.db.DbPasswordCallback" />
 			</dataSource>
 		</connectionSource>
 	</appender>-->

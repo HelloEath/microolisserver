@@ -2,9 +2,9 @@ package com.hello.adminservice.controller;
 
 import com.hello.adminservice.controller.common.BaseController;
 import com.hello.adminservice.service.UserService;
-import com.hello.adminservice.util.PageRequestUtil;
-import com.hello.adminservice.util.Result;
-import com.hello.adminservice.util.ResultUtil;
+import com.hello.common.util.PageRequestUtil;
+import com.hello.common.util.Result;
+import com.hello.common.util.ResultUtil;
 import com.hello.common.entity.system.Permission;
 import com.hello.common.entity.system.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +20,10 @@ import java.util.List;
  */
 @RestController
 public class UserControllerImpl extends BaseController implements UserController {
-	
+
 	@Autowired
 	private UserService userService;
-	
+
     @Override
     public Result<User> get(@PathVariable Long id) {
     	User user = userService.findUserById(id);
@@ -74,7 +74,12 @@ public class UserControllerImpl extends BaseController implements UserController
         return ResultUtil.success(userService.menus());
     }
 
-	
+    @Override
+    public User loadUserByUsername(String s) {
+        return null;
+    }
+
+
     /**
      * 根据岗位code来获取用户集合
      * @return
@@ -83,6 +88,6 @@ public class UserControllerImpl extends BaseController implements UserController
 	public Result<List<User>> getUsersByRolecode(String departmentId, String rolecode, Integer status) {
 		return ResultUtil.success(userService.getUsersByRolecode(departmentId,rolecode,status));
 	}
-	
+
 
 }

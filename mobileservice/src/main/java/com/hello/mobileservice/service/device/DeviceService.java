@@ -46,6 +46,6 @@ public interface DeviceService {
 
 
     @RequestMapping(value = "/isValiDataDevice",method = RequestMethod.GET)
-     Object isValiDataDevice(@RequestParam("deviceId") String deviceId,@RequestParam("systemType") String systemType,@RequestParam("token") String token);
+    Result<Device> isValiDataDevice(@RequestParam("deviceId") String deviceId,@RequestParam("systemType") String systemType,@RequestParam("token") String token);
 
 }

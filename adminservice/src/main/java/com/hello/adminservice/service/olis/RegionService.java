@@ -2,7 +2,7 @@ package com.hello.adminservice.service.olis;
 
 import com.hello.adminservice.repository.olis.RegionPrizeManageRepository;
 import com.hello.adminservice.repository.olis.RegionRepository;
-import com.hello.adminservice.util.PasswordUtils;
+import com.hello.common.util.PasswordUtils;
 import com.hello.common.dto.olis.Region;
 import com.hello.common.dto.olis.RegionPrizeManage;
 import com.hello.common.entity.system.User;

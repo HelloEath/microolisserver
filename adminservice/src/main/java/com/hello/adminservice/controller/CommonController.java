@@ -1,6 +1,6 @@
 package com.hello.adminservice.controller;
 
-import com.hello.adminservice.util.Result;
+import com.hello.common.util.Result;
 import com.hello.common.entity.system.LoggingEventException;
 import com.hello.common.entity.system.SystemLog;
 import com.hello.common.entity.system.SystemParams;

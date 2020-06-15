@@ -1,7 +1,7 @@
 package com.hello.adminservice.controller.common;
 
-import com.hello.adminservice.util.Result;
-import com.hello.adminservice.util.ResultUtil;
+import com.hello.common.util.Result;
+import com.hello.common.util.ResultUtil;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

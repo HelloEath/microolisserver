@@ -1,7 +1,7 @@
 package com.hello.adminservice.controller.brand;
 
 
-import com.hello.adminservice.util.Result;
+import com.hello.common.util.Result;
 import com.hello.common.dto.olis.*;
 import com.hello.common.entity.system.UploadFile;
 import io.swagger.annotations.*;

@@ -1,6 +1,6 @@
 package com.hello.adminservice.controller;
 
-import com.hello.adminservice.util.Result;
+import com.hello.common.util.Result;
 import com.hello.common.entity.system.Role;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;

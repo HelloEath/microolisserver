@@ -4,7 +4,7 @@ import com.hello.adminservice.repository.ThreeLevelWithYearRepository;
 import com.hello.adminservice.repository.engine.EngineRepository;
 import com.hello.adminservice.repository.engine.EngineTypeRepository;
 import com.hello.adminservice.repository.saeDesc.SaeDescRepository;
-import com.hello.adminservice.util.PasswordUtils;
+import com.hello.common.util.PasswordUtils;
 import com.hello.common.dto.olis.Engine;
 import com.hello.common.dto.olis.EngineType;
 import com.hello.common.dto.olis.SaeDesc;

@@ -1,8 +1,8 @@
 package com.hello.adminservice.controller.sae;
 
 import com.hello.adminservice.service.saeDesc.SaeDescService;
-import com.hello.adminservice.util.Result;
-import com.hello.adminservice.util.ResultUtil;
+import com.hello.common.util.Result;
+import com.hello.common.util.ResultUtil;
 import com.hello.common.dto.olis.SaeDesc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;

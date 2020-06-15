@@ -2,11 +2,14 @@ package com.hello.brandserver.service.brand;
 
 
 import com.hello.brandserver.repository.brand.BrandRepository;
+import com.hello.common.config.AppConfig;
 import com.hello.common.dto.olis.Brand;
 import com.hello.common.dto.olis.OneLevelCarType;
 import com.hello.common.dto.olis.ThreeLevelCarType;
 import com.hello.common.dto.olis.TwoLevelCarType;
+import com.hello.common.entity.system.UploadFile;
 import com.hello.common.entity.system.User;
+import com.hello.common.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -17,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -44,8 +48,14 @@ public class BrandService {
     @Autowired
     FileService fileService;
 
+    @Resource
+    AppConfig appConfig;
+
+    @Autowired
+    UserService userService;
+
     public void save(Brand brand) {
-        User currentUser= new User();
+        User currentUser=userService.currentUser().getData();
         brand.setSystemType(currentUser.getSystemType());
         brandRepository.save(brand);
         String key="brand_"+currentUser.getSystemType();
@@ -58,25 +68,29 @@ public class BrandService {
     }
 
     public Object search(PageRequest pageRequest, String brandEngineType) {
-        User currentUser= new User();
-        Specification<Brand> specification = new Specification<Brand>() {
-            @Override
-            public Predicate toPredicate(Root<Brand> root,
-                                         CriteriaQuery<?> query, CriteriaBuilder cb) {
-                List<Predicate> list = new ArrayList<>();
+        User currentUser=userService.currentUser().getData();
+        if (currentUser!=null){
+            Specification<Brand> specification = new Specification<Brand>() {
+                @Override
+                public Predicate toPredicate(Root<Brand> root,
+                                             CriteriaQuery<?> query, CriteriaBuilder cb) {
+                    List<Predicate> list = new ArrayList<>();
 
-                if (!StringUtils.isEmpty(brandEngineType)) {
-                    Predicate p1 = cb.like(root.get("brandName").as(String.class), "%" + brandEngineType.trim() + "%");
-                    list.add(p1);
+                    if (!StringUtils.isEmpty(brandEngineType)) {
+                        Predicate p1 = cb.like(root.get("brandName").as(String.class), "%" + brandEngineType.trim() + "%");
+                        list.add(p1);
+                    }
+                    Predicate p2 = cb.equal(root.get("systemType").as(String.class), currentUser.getSystemType());
+                    list.add(p2);
+                    Predicate[] p = new Predicate[list.size()];
+                    return cb.and(list.toArray(p));
                 }
-                Predicate p2 = cb.equal(root.get("systemType").as(String.class), currentUser.getSystemType());
-                list.add(p2);
-                Predicate[] p = new Predicate[list.size()];
-                return cb.and(list.toArray(p));
-            }
-        };
-        Page<Brand> page = brandRepository.findAll(specification, pageRequest);
-        return page;
+            };
+            Page<Brand> page = brandRepository.findAll(specification, pageRequest);
+            return page;
+
+        }
+        return null;
     }
 
     public void del(Long id) {
@@ -107,13 +121,13 @@ public class BrandService {
     }
 
     public void saveOne(OneLevelCarType oneLevelCarType) {
-        User currentUser= new User();
+        User currentUser=userService.currentUser().getData();
         oneLevelCarType.setSystemType(currentUser.getSystemType());
         levelCarTypeService.saveOne(oneLevelCarType);
     }
 
     public Object searchOneCar(PageRequest build, String carTypeName) {
-        User currentUser= new User();
+        User currentUser=userService.currentUser().getData();
         Specification<OneLevelCarType> specification = new Specification<OneLevelCarType>() {
             @Override
             public Predicate toPredicate(Root<OneLevelCarType> root,
@@ -136,13 +150,13 @@ public class BrandService {
     }
 
     public void saveTwo(TwoLevelCarType twoLevelCarType) {
-        User currentUser= new User();
+        User currentUser=userService.currentUser().getData();
         twoLevelCarType.setSystemType(currentUser.getSystemType());
         levelCarTypeService.saveTwo(twoLevelCarType);
     }
 
     public Object searchTwoCar(PageRequest build, String carTypeName) {
-        User currentUser= new User();
+        User currentUser=userService.currentUser().getData();
         Specification<TwoLevelCarType> specification = new Specification<TwoLevelCarType>() {
             @Override
             public Predicate toPredicate(Root<TwoLevelCarType> root,
@@ -169,18 +183,18 @@ public class BrandService {
     }
 
     public List<Brand> findAllBrand() {
-        User currentUser= new User();
+        User currentUser=userService.currentUser().getData();
         return brandRepository.findAllBySystemType(currentUser.getSystemType());
     }
 
     public void saveThree(ThreeLevelCarType threeLevelCarType) {
-        User currentUser= new User();
+        User currentUser=userService.currentUser().getData();
         threeLevelCarType.setSystemType(currentUser.getSystemType());
         levelCarTypeService.saveThree(threeLevelCarType);
     }
 
     public Object searchThreeCar(PageRequest build, String carTypeName) {
-        User currentUser= new User();
+        User currentUser=userService.currentUser().getData();
         Specification<ThreeLevelCarType> specification = new Specification<ThreeLevelCarType>() {
             @Override
             public Predicate toPredicate(Root<ThreeLevelCarType> root,
@@ -223,7 +237,27 @@ public class BrandService {
         return threeLevelWithYearRepository.findAllByYearIdAndThreeId(yearId,threeId);
     }
 
-    public Object uploadBrandImage(MultipartFile file) {
-        return fileService.uploadBrandImage(file);
+    public Result<UploadFile> uploadBrandImage(MultipartFile file) {
+        String path = appConfig.getBrand();
+        return fileService.upload(file);
     }
+
+    public static void main(String[] args) {
+        String s1 = "HelloWorld";
+
+        String s2 = new String("HelloWorld");
+
+        String s3 = "Hello";
+        String s4 = "World";
+        String s5 = "Hello" + "World";
+        String s6 = s3 + s4;
+
+        System.out.println(s1 == s2);
+        System.out.println(s1 == s5);
+        System.out.println(s1 == s6);
+        System.out.println(s1 == s6.intern());
+        System.out.println(s2 == s2.intern());
+
+    }
+
 }

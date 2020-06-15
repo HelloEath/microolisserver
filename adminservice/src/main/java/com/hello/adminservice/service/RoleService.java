@@ -1,9 +1,9 @@
 package com.hello.adminservice.service;
 
-import com.hello.adminservice.Exception.ApplicationException;
 import com.hello.adminservice.repository.RoleRepository;
 import com.hello.adminservice.repository.UserRepository;
-import com.hello.adminservice.util.PasswordUtils;
+import com.hello.common.Exception.ApplicationException;
+import com.hello.common.util.PasswordUtils;
 import com.hello.common.entity.system.Role;
 import com.hello.common.entity.system.User;
 import org.springframework.beans.factory.annotation.Autowired;

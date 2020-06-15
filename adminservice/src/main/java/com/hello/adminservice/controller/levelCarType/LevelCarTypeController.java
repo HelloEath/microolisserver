@@ -1,7 +1,7 @@
 package com.hello.adminservice.controller.levelCarType;
 
 
-import com.hello.adminservice.util.Result;
+import com.hello.common.util.Result;
 import com.hello.common.dto.olis.OneLevelCarType;
 import com.hello.common.dto.olis.ThreeLevelCarType;
 import com.hello.common.dto.olis.TwoLevelCarType;

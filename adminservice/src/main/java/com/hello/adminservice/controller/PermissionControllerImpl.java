@@ -1,9 +1,9 @@
 package com.hello.adminservice.controller;
 
 import com.hello.adminservice.service.PermissionService;
-import com.hello.adminservice.util.PageRequestUtil;
-import com.hello.adminservice.util.Result;
-import com.hello.adminservice.util.ResultUtil;
+import com.hello.common.util.PageRequestUtil;
+import com.hello.common.util.Result;
+import com.hello.common.util.ResultUtil;
 import com.hello.common.entity.system.Permission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

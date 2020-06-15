@@ -53,7 +53,7 @@ public class BrandControllerImpl implements BrandController {
 
     @Override
     public Result<UploadFile> uploadBrandImage(MultipartFile file) {
-        return ResultUtil.success(brandService.uploadBrandImage(file));
+        return brandService.uploadBrandImage(file);
     }
 
     @Override
