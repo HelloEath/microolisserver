@@ -32,7 +32,7 @@ springBoot+springSecurity+springCloud+Redis+zuul+feign+consul+springData+spring-
 # 4.数据库设计 
 数据库表
 
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo2.PNG)
+![](imagesdesc/demo2.PNG)
 ![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo3.PNG)
 数据表关系
 
