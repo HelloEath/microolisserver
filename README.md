@@ -1,8 +1,8 @@
-# 项目描述
+# 1.项目描述
 一个在线查询汽车润滑油的系统，分为移动端和pc端，移动端可根据品牌查询合适的润滑油，PC端属于管理后台，根据相关信息录入汽车合适的润滑油
 信息。
 
-# 技术涉及
+# 2.技术涉及
 springBoot+springSecurity+springCloud+Redis+zuul+feign+consul+springData+spring-boot-admin+nginx+vue
 
 前端技术：
@@ -27,13 +27,18 @@ springBoot+springSecurity+springCloud+Redis+zuul+feign+consul+springData+spring-
 * consul 1.7.1
 * nginx-1.13.7：
 
-# 系统架构
+# 3.系统架构
 
-# 数据库设计 
+# 4.数据库设计 
 数据库表
 
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo2.PNG)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo3.PNG)
 数据表关系
-# 项目结构
+
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo4.PNG)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo5.PNG)
+# 5.项目结构
 * adminservice：后台管理系统后台
 * brandserver：品牌管理模块
 * gateserver：网关模块
@@ -67,14 +72,14 @@ springBoot+springSecurity+springCloud+Redis+zuul+feign+consul+springData+spring-
 
 预览图：
 
-![](https://github.com/HelloEath/microolisserver/blob/master/imagesdesc/demo1.PNG)
-![](https://github.com/HelloEath/microolisserver/blob/master/imagesdesc/demo1.PNG)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo1.PNG)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo1.PNG)
 移动端基于app或是网页形式展现
 
 预览图：
 
 
-# Nginx配置
+# 6.Nginx配置
 server {
 	listen       80;
 	server_name  manage.leyou.com;
