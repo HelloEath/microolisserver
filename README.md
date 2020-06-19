@@ -1,114 +1,74 @@
-#项目描述:一个在线查询汽车润滑油的系统，分为移动端和pc端，移动端可根据品牌查询合适的润滑油，PC端属于管理后台，根据相关信息录入汽车合适的润滑油
+# 项目描述
+一个在线查询汽车润滑油的系统，分为移动端和pc端，移动端可根据品牌查询合适的润滑油，PC端属于管理后台，根据相关信息录入汽车合适的润滑油
 信息。
 
-#技术涉及:springBoot+springSecurity+springCloud+Redis+zuul+feign+consul+springData+spring-boot-admin+nginx+vue
+# 技术涉及
+springBoot+springSecurity+springCloud+Redis+zuul+feign+consul+springData+spring-boot-admin+nginx+vue
 前端技术：
 
-+基础的HTML、CSS、JavaScript（基于ES6标准）
-*JQuery
-*Vue.js 2.0
-*前端构建工具：WebPack
-*前端安装包工具：NPM
-*Vue脚手架：Vue-cli
-*Vue路由：vue-router
-*ajax框架：axios
-*element-ui
+* 基础的HTML、CSS、JavaScript（基于ES6标准）
+* JQuery
+* Vue.js 2.0
+* 前端构建工具：WebPack
+* 前端安装包工具：NPM
+* Vue脚手架：Vue-cli
+* Vue路由：vue-router
+* ajax框架：axios
+* element-ui
 后端技术：
 
-基础的SpringMVC、Spring 5.0和mysql5.6
-Spring Boot 2.2.7版本
-Spring Cloud Hoxton.SR3
-Redis-4.0
-consul
-nginx-1.10.2：
+* 基础的SpringMVC、Spring 5.0
+* mysql5.6
+* Spring Boot 2.2.7版本
+* Spring Cloud Hoxton.SR3
+* Redis-5.0
+* consul 1.7.1
+* nginx-1.13.7：
 
+# 系统架构
 
-#系统架构
-
-#数据库设计 mysql5.6
+# 数据库设计 
 数据库表
 
 数据表关系
-
-
-
+# 项目结构
+* adminservice：后台管理系统后台
+* brandserver：品牌管理模块
+* gateserver：网关模块
+* fileservice：图片上传模块
+* common：通用工具模块
+* mobileservice：移动端模块
+* userservice：用户管理模块
+* olisclient：后台管理系统前端
+* olisclient-mobile：移动端前台
 
 整个项目可以分为两部分：后台管理系统、移动端。
 
 后台管理：
-
-后台系统主要包含以下功能：
-商品管理，包括商品分类、品牌、商品规格等信息的管理
-销售管理，包括订单统计、订单退款处理、促销活动生成等
-用户管理，包括用户控制、冻结、解锁等
-权限管理，整个网站的权限控制，采用JWT鉴权方案，对用户及API进行权限控制
-统计，各种数据的统计分析展示
 后台系统会采用前后端分离开发，而且整个后台管理系统会使用Vue.js框架搭建出单页应用（SPA）。
-预览图：1573821246869
-前台门户
+后台系统主要包含以下功能：
+* 品牌管理:品牌增删查改
+* 一级分类管理:一级车型增删查改
+* 二级分类管理:二级车型增删查改
+* 三级分类管理:三级车型增删查改
+* 年限管理:发动机年限增删查改
+* 发动机类型管理:发动机类型增删查改
+* 发动机管理:根据品牌，一级分类，二级分类，三级分类，年限，发动机类型，油品信息增加一条匹配记录表，并可以进行删除，修改操作
+* 保护油管理:润滑油的增删查改
+* 图片基础管理:包含发动机图片和油品图片的增删查改
+* 机器人管理:管理移动端设备的授权信息
+* 角色管理:角色的增删查改
+* 菜单管理：菜单的增删查改
+* 管理员列表:用户的增删查改
 
-前台门户面向的是客户，包含与客户交互的一切功能。例如：
-搜索商品
-加入购物车
-下单
-评价商品等等
-前台系统我们会使用Thymeleaf模板引擎技术来完成页面开发。出于SEO优化的考虑，我们将不采用单页应用。
-预览图：1573821296666
-1.3.技术选型
-前端技术：
+预览图：
+![](https://github.com/HelloEath/microolisserver/blob/master/imagesdesc/demo1.PNG)
+![](https://github.com/HelloEath/microolisserver/blob/master/imagesdesc/demo1.PNG)
+移动端基于app或是网页形式展现
+预览图：
 
-基础的HTML、CSS、JavaScript（基于ES6标准）
-JQuery
-Vue.js 2.0以及基于Vue的框架：Vuetify
-前端构建工具：WebPack
-前端安装包工具：NPM
-Vue脚手架：Vue-cli
-Vue路由：vue-router
-ajax框架：axios
-基于Vue的富文本框架：quill-editor
-后端技术：
 
-基础的SpringMVC、Spring 5.0和MyBatis3
-Spring Boot 2.0.1版本
-Spring Cloud 最新版 Finchley.RC1
-Redis-4.0
-RabbitMQ-3.4
-Elasticsearch-5.6.8
-nginx-1.10.2：
-FastDFS - 5.0.8
-MyCat
-Thymeleaf
-2.项目结构
-leyou：后台管理系统后台
-ly-registry：注册中心模块
-ly-api-gateway：网关模块
-ly-item：商品服务模块
-ly-common：通用工具模块
-ly-upload：图片上传模块
-ly-search：搜索服务模块
-ly-goods-web：商品详情页服务模块
-ly-user：用户中心模块
-ly-sms-service：短信服务模块
-ly-auth：授权中心模块
-ly-cart：购物车服务模块
-ly-order：订单服务模块
-leyou-manage-web：后台管理系统前端
-leyou-protal：前台门户
-另：leyou-demo(乐优商城demo练习项目)，包括：Spring Cloud组件(Eureka、Zuul、Robbin、Feign、Hystix)学习、Elasticsearch和Spring Data Elasticsearch学习、RabbitMQ和Spring AMQP学习、阿里大于学习
-
-3.资料
-3.1.数据库
-leyou.sql
-
-3.2.配置文件
-3.2.1.hosts
-# 乐优商城
-127.0.0.1 api.leyou.com # 网关Zuul
-127.0.0.1 manage.leyou.com # 后台系统
-127.0.0.1 www.leyou.com # 乐优门户
-192.168.56.101 image.leyou.com	# 图片服务器，虚拟机地址
-3.2.2nginx
-# 乐优商城
+# Nginx配置
 server {
 	listen       80;
 	server_name  manage.leyou.com;
@@ -148,7 +108,6 @@ server {
 		proxy_read_timeout 600;
 	}
 }
-# 乐优门户
 server {
 	listen       80;
 	server_name  www.leyou.com;
