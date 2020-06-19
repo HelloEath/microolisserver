@@ -4,6 +4,7 @@
 
 # 技术涉及
 springBoot+springSecurity+springCloud+Redis+zuul+feign+consul+springData+spring-boot-admin+nginx+vue
+
 前端技术：
 
 * 基础的HTML、CSS、JavaScript（基于ES6标准）
@@ -15,6 +16,7 @@ springBoot+springSecurity+springCloud+Redis+zuul+feign+consul+springData+spring-
 * Vue路由：vue-router
 * ajax框架：axios
 * element-ui
+
 后端技术：
 
 * 基础的SpringMVC、Spring 5.0
@@ -45,7 +47,9 @@ springBoot+springSecurity+springCloud+Redis+zuul+feign+consul+springData+spring-
 整个项目可以分为两部分：后台管理系统、移动端。
 
 后台管理：
+
 后台系统会采用前后端分离开发，而且整个后台管理系统会使用Vue.js框架搭建出单页应用（SPA）。
+
 后台系统主要包含以下功能：
 * 品牌管理:品牌增删查改
 * 一级分类管理:一级车型增删查改
@@ -62,9 +66,11 @@ springBoot+springSecurity+springCloud+Redis+zuul+feign+consul+springData+spring-
 * 管理员列表:用户的增删查改
 
 预览图：
+
 ![](https://github.com/HelloEath/microolisserver/blob/master/imagesdesc/demo1.PNG)
 ![](https://github.com/HelloEath/microolisserver/blob/master/imagesdesc/demo1.PNG)
 移动端基于app或是网页形式展现
+
 预览图：
 
 
