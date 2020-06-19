@@ -10,9 +10,9 @@ springBoot+springSecurity+springCloud+Redis+zuul+feign+consul+springData+spring-
 * 基础的HTML、CSS、JavaScript（基于ES6标准）
 * JQuery
 * Vue.js 2.0
-* 前端构建工具：WebPack
-* 前端安装包工具：NPM
-* Vue脚手架：Vue-cli
+* 前端构建工具：webpack
+* 前端安装包工具：npm
+* Vue脚手架：vue-cli
 * Vue路由：vue-router
 * ajax框架：axios
 * element-ui
@@ -21,11 +21,11 @@ springBoot+springSecurity+springCloud+Redis+zuul+feign+consul+springData+spring-
 
 * 基础的SpringMVC、Spring 5.0
 * mysql5.6
-* Spring Boot 2.2.7版本
+* Spring Boot 2.2.7
 * Spring Cloud Hoxton.SR3
 * Redis-5.0
 * consul 1.7.1
-* nginx-1.13.7：
+* nginx-1.13.7
 
 # 3.系统架构
 
