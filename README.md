@@ -80,65 +80,132 @@ springBoot+springSecurity+springCloud+Redis+consul+springData+spring-boot-admin+
 
 
 # 6.Nginx配置
-server {
-	listen       80;
-	server_name  manage.leyou.com;
 
-	proxy_set_header X-Forwarded-Host $host;
-	proxy_set_header X-Forwarded-Server $host;
-	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#user  nobody;
+worker_processes  1;
 
-	location / {
-		proxy_pass http://127.0.0.1:9001;
-		proxy_connect_timeout 600;
-		proxy_read_timeout 600;
-	}
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
 }
-server {
-	listen       80;
-	server_name  api.leyou.com;
 
-	proxy_set_header X-Forwarded-Host $host;
-	proxy_set_header X-Forwarded-Server $host;
-	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-	# 转发时，携带自身的host，而不是转发后的host(127.0.0.1)
-	proxy_set_header Host $host;
 
-	# 上传路径的映射
-	location /api/upload {	
-		proxy_pass http://127.0.0.1:8082;
-		proxy_connect_timeout 600;
-		proxy_read_timeout 600;
-		# 对请求路径进行重写 eg：/api/upload/image -> /upload/image
-		rewrite "^/api/(.*)$" /$1 break; 
-	}
-	
-	location / {
-		proxy_pass http://127.0.0.1:10010;
-		proxy_connect_timeout 600;
-		proxy_read_timeout 600;
-	}
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  65;
+
+    #gzip  on;
+	#设定负载均衡的服务器列表
+    upstream myserver {
+      ip_hash;       
+      server localhost:8289 ;
+      server localhost:8288 ;
+  		}
+
+    server {
+        listen       8888;
+        server_name  localhost;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+ 	# 不带数据的请求
+        location / {
+            root   /home/olispage;
+            index  index.html index.htm;
+        }
+	# 带数据的请求
+ 	location /olisserver {
+	proxy_set_header x-forwarded-for $remote_addr;
+         proxy_pass http://myserver;
+        }
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        #location ~ \.php$ {
+        #    root           html;
+        #    fastcgi_pass   127.0.0.1:9000;
+        #    fastcgi_index  index.php;
+        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        #    include        fastcgi_params;
+        #}
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+
+    # another virtual host using mix of IP-, name-, and port-based configuration
+    #
+    #server {
+    #    listen       8000;
+    #    listen       somename:8080;
+    #    server_name  somename  alias  another.alias;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+
+    # HTTPS server
+    #
+    #server {
+    #    listen       443 ssl;
+    #    server_name  localhost;
+
+    #    ssl_certificate      cert.pem;
+    #    ssl_certificate_key  cert.key;
+
+    #    ssl_session_cache    shared:SSL:1m;
+    #    ssl_session_timeout  5m;
+
+    #    ssl_ciphers  HIGH:!aNULL:!MD5;
+    #    ssl_prefer_server_ciphers  on;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
 }
-server {
-	listen       80;
-	server_name  www.leyou.com;
 
-	proxy_set_header X-Forwarded-Host $host;
-	proxy_set_header X-Forwarded-Server $host;
-	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-	
-	location /item {
-		# 先找本地
-		root html/leyou;
-		if (!-f $request_filename) { # 请求的文件不存在，就反向代理
-			proxy_pass http://127.0.0.1:8084;
-			break;
-		}
-	}
-	
-	location / {
-		proxy_pass http://127.0.0.1:9002;
-		proxy_connect_timeout 600;
-		proxy_read_timeout 600;
-	}
-}
