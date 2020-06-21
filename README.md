@@ -3,7 +3,7 @@
 信息。
 
 # 2.技术涉及
-springBoot+springSecurity+springCloud+Redis+zuul+feign+consul+springData+spring-boot-admin+nginx+vue
+springBoot+springSecurity+springCloud+Redis+consul+springData+spring-boot-admin+nginx+vue
 
 前端技术：
 
