@@ -33,7 +33,7 @@ springBoot+springSecurity+springCloud+Redis+consul+springData+spring-boot-admin+
 数据库表
 ![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/olis-table.jpg)
 数据表关系
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/olis-er.jpg)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/olis-er.png)
 # 5.项目结构
 * adminservice：后台管理系统后台
 * brandserver：品牌管理模块
@@ -68,23 +68,22 @@ springBoot+springSecurity+springCloud+Redis+consul+springData+spring-boot-admin+
 
 预览图：
 ![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo2.PNG)
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo2.PNG)
 ![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo3.PNG)
 
 ![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo5.PNG)
 ![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo7.PNG)
 ![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo8.PNG)
 ![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo9.PNG)
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo11.PNG)
 移动端基于app或是网页形式展现
 
 预览图：
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo1.PNG)
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo2.PNG)
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo3.PNG)
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo4.PNG)
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo5.PNG)
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo6.PNG)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo11.PNG)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo1.png)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo2.png)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo3.png)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo4.png)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo5.png)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo6.png)
 
 
 # 6.Nginx配置
