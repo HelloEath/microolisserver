@@ -33,7 +33,7 @@ springBoot+springSecurity+springCloud+Redis+consul+springData+spring-boot-admin+
 数据库表
 ![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/olis-table.jpg)
 数据表关系
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/olis-er.png)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/oils-er.png)
 # 5.项目结构
 * adminservice：后台管理系统后台
 * brandserver：品牌管理模块
@@ -78,12 +78,12 @@ springBoot+springSecurity+springCloud+Redis+consul+springData+spring-boot-admin+
 
 预览图：
 ![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo11.PNG)
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo1.png)
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo2.png)
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo3.png)
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo4.png)
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo5.png)
-![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobiel-demo6.png)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobile-demo1.png)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobile-demo2.png.png)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobile-demo3.png)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobile-demo4.png)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobile-demo5.png)
+![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/mobile-demo6.png)
 
 
 # 6.Nginx配置
