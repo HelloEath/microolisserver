@@ -15,7 +15,7 @@ springBoot+springSecurity+springCloud+Redis+consul+springData+spring-boot-admin+
 * Vue脚手架：vue-cli
 * Vue路由：vue-router
 * ajax框架：axios
-* element-ui
+* UI:element-ui
 
 后端技术：
 
@@ -26,6 +26,8 @@ springBoot+springSecurity+springCloud+Redis+consul+springData+spring-boot-admin+
 * Redis-5.0
 * consul 1.7.1
 * nginx-1.13.7
+* feign
+
 
 # 3.系统架构
 
@@ -89,7 +91,7 @@ springBoot+springSecurity+springCloud+Redis+consul+springData+spring-boot-admin+
 
 # 6.Nginx配置
 
-#user  nobody;
+user  root;
 worker_processes  1;
 
 #error_log  logs/error.log;
@@ -120,28 +122,35 @@ http {
     #keepalive_timeout  0;
     keepalive_timeout  65;
 
-    #gzip  on;
+    gzip  on;
+    gzip_min_length  1k;
+    gzip_buffers     4 16k;
+    gzip_http_version 1.1;
+    gzip_comp_level 9;
+    gzip_types       text/plain application/x-javascript text/css application/xml text/javascript application/x-httpd-php application/javascript application/json;
+    gzip_disable "MSIE [1-6]\.";
+    gzip_vary on;
 	#设定负载均衡的服务器列表
     upstream myserver {
       ip_hash;       
-      server localhost:8289 ;
-      server localhost:8288 ;
+      server 127.0.0.1:8106 ;
+      server 127.0.0.1:8103 ;
   		}
 
     server {
-        listen       8888;
-        server_name  localhost;
+        listen       8102;
+        server_name  127.0.0.1;
 
         #charset koi8-r;
 
         #access_log  logs/host.access.log  main;
  	# 不带数据的请求
-        location / {
-            root   /home/olispage;
+        location /olisserver {
+            alias   /home/olispage;
             index  index.html index.htm;
         }
 	# 带数据的请求
- 	location /olisserver {
+ 	location /api{
 	proxy_set_header x-forwarded-for $remote_addr;
          proxy_pass http://myserver;
         }
@@ -216,4 +225,3 @@ http {
     #}
 
 }
-
