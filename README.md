@@ -67,6 +67,7 @@ springBoot+springSecurity+springCloud+Redis+consul+springData+spring-boot-admin+
 * 管理员列表:用户的增删查改
 
 预览图：
+![Alt text](https://github.com/chenyufeng1991/NewsClient/raw/master/Screenshots/2.png)
 ![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo2.PNG)
 ![](https://github.com/HelloEath/microolisserver/raw/master/imagesdesc/demo3.PNG)
 
